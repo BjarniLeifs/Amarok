@@ -1,6 +1,6 @@
 
 #The Assignment
----
+
 
 ####Purpose 
 
@@ -84,7 +84,7 @@ count in the grade.
 ---
 
 #Getting started
----
+
 
 ####Requirements
 
@@ -105,7 +105,7 @@ count in the grade.
 
 
 #Tools & methods
----
+
 
 ####Trello
 
