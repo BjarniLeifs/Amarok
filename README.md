@@ -2,15 +2,16 @@
 The Assignment
 ===
 
-Purpose 
---
+####Purpose 
+
 Learn to set up technical infrastructure to support agile development. The main challenge is
 to glue together the bits and pieces through the latter half of this class, into a coherent
 infrastructure.
 
-
-Description
 --
+
+####Description
+
 Each team should implement the game TicTacToe. The main focus is on the infrastructure
 and best coding practices described below but not on implemented features.
 The project and infrastructure should tackle the following:
@@ -32,39 +33,39 @@ The project and infrastructure should tackle the following:
         practices.
         
     7.  It is possible to get extra points for the following
-    
-    1.  More build targets (0,5 point per item, never more than 1 for this part)
-            Code coverages
-            Code inspection
-            Integrate database
+        1.  More build targets (0,5 point per item, never more than 1 for this part)
+                Code coverages
+                Code inspection
+                Integrate database
             
-    2.  Run focused integration or End-to-end tests (e.g. Selenium). It is necessary to
-        run this on external staging server (e.g. Heroku). To run integration test the
-        application needs to connect to external system e.g. database. To run end-toend
-        test the system needs to have GUI (e.g. webUI). (1 point)
+        2.  Run focused integration or End-to-end tests (e.g. Selenium). It is necessary to
+            run this on external staging server (e.g. Heroku). To run integration test the
+            application needs to connect to external system e.g. database. To run end-toend
+            test the system needs to have GUI (e.g. webUI). (1 point)
 
-    3.  Use Automated Continuous Integration Server (e.g. Travis). (1 point)
+        3.  Use Automated Continuous Integration Server (e.g. Travis). (1 point)
     
-    4.  Continuous Delivery. For each code change the CI server runs these steps:
-            
-            Run build script (all targets)
-            Run unit and integration tests (if you have integration tests)
-            Deploy on staging and run End-to-end tests.
-            Deploy to production server.
-            Only continue next step if previuous step is success
-            Generate feedback to developer
+        4.  Continuous Delivery. For each code change the CI server runs these steps:
+            * Run build script (all targets)
+            * Run unit and integration tests (if you have integration tests)
+            * Deploy on staging and run End-to-end tests.
+            * Deploy to production server.
+            * Only continue next step if previuous step is success
+            * Generate feedback to developer
     
-    5.  Something else ... Surprise me !!!
+        5.  Something else ... Surprise me !!!
     
+---
 
-
-Grade
+####Grade
 ---
 Solving parts 1-6 perfectly will together give a grade of 6, it's ok to have all targets in 
 build script manual. In order to get a 10, you'll need to solve at least 4 extra points.
 
-Return form
 ---
+
+####Return form
+
     
     1.  URL of root of the project in the source control system
   
@@ -85,9 +86,10 @@ Return form
     
         Document describing initial design
 
-
-Demonstration
 ---
+
+####Demonstration
+
 The team will have a 15 minutes demonstration of the technical infrastructure and the simple
 functionality developed. The demonstrations will be held in the last week, the detailed
 schedule will be published later. The distributed groups will demonstrate using shared
@@ -95,31 +97,38 @@ desktop. The demonstration is part of the grade for this assignment. If you can 
 show some part of the build process (if it is broken) in the demonstration if will not
 count in the grade.
 
+---
 
 Getting started
 ===
 
-Requirements
+####Requirements
+
 ---
 
-Create project
+####Create project
+
 ---
 
-Project content
+####Project content
+
 ---
 
 
-Project Test
+####Project Test
+
 ---
 
 
 Tools & methods
 ===
 
-Trello
+####Trello
+
 ---
 
-Scrum
+####Scrum
+
 ---
 
 ---
