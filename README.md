@@ -1,8 +1,5 @@
-Repo For Team Amarok
 
-
-
-Late-term Assignment
+The Assignment
 ===
 
 Purpose 
