@@ -1,19 +1,19 @@
 Repo For Team Amarok
-============================================================================================
+
+
 
 Late-term Assignment
-============================================================================================
+===
 
 Purpose 
-============================================================================================
+--
 Learn to set up technical infrastructure to support agile development. The main challenge is
 to glue together the bits and pieces through the latter half of this class, into a coherent
 infrastructure.
 
 
-
 Description
-============================================================================================
+--
 Each team should implement the game TicTacToe. The main focus is on the infrastructure
 and best coding practices described below but not on implemented features.
 The project and infrastructure should tackle the following:
@@ -62,12 +62,12 @@ The project and infrastructure should tackle the following:
 
 
 Grade
-============================================================================================
+---
 Solving parts 1-6 perfectly will together give a grade of 6, it's ok to have all targets in 
 build script manual. In order to get a 10, you'll need to solve at least 4 extra points.
 
 Return form
-============================================================================================
+---
     
     1.  URL of root of the project in the source control system
   
@@ -90,7 +90,7 @@ Return form
 
 
 Demonstration
-============================================================================================
+---
 The team will have a 15 minutes demonstration of the technical infrastructure and the simple
 functionality developed. The demonstrations will be held in the last week, the detailed
 schedule will be published later. The distributed groups will demonstrate using shared
@@ -100,6 +100,6 @@ count in the grade.
 
 
 
-======
+---
 
 Hugbúnaðarfræði - Team owsom!
