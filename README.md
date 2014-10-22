@@ -99,4 +99,4 @@ count in the grade.
 
 ---
 
-Hugbúnaðarfræði - Team owsom!
+Hugbúnaðarfræði - Team Amarok!
