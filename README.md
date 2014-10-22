@@ -96,6 +96,31 @@ show some part of the build process (if it is broken) in the demonstration if wi
 count in the grade.
 
 
+Getting started
+===
+
+Requirements
+---
+
+Create project
+---
+
+Project content
+---
+
+
+Project Test
+---
+
+
+Tools & methods
+===
+
+Trello
+---
+
+Scrum
+---
 
 ---
 
