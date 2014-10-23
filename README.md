@@ -130,9 +130,11 @@ count in the grade.
 
 #####Install git
 
-For Windows     - https://windows.github.com
-For Mac         - https://mac.github.com
-All platforms   - http://git-scm.com
+Command | Information
+------------ | -------------
+For Windows | https://windows.github.com
+For Mac | https://mac.github.com
+All platforms | http://git-scm.com
 
 #####CONFIGURE TOOLING
 Configure user information for all local repositories
@@ -145,6 +147,7 @@ Command | Information
 
 #####CREATE REPOSITORIES
 Start a new repository or obtain one from an existing URL
+
 Command | Information
 ------------ | -------------
 (`$ git init [project-name]`) | Creates a new local repository with the specified name
@@ -152,6 +155,7 @@ Command | Information
 
 #####MAKE CHANGES
 Review edits and craf a commit transaction
+
 Command | Information
 ------------ | -------------
 (`$ git status`) | Lists all new or modified files to be commited
@@ -163,6 +167,7 @@ Command | Information
 
 #####GROUP CHANGES
 Name a series of commits and combine completed efforts
+
 Command | Information
 ------------ | -------------
 (`$ git branch`) | Lists all local branches in the current repository
@@ -173,6 +178,7 @@ Command | Information
 
 #####REFACTOR FILENAMES
 Relocate and remove versioned files
+
 Command | Information
 ------------ | -------------
 (`$ git rm [file]`) | Deletes the file from the working directory and stages the deletion
@@ -181,12 +187,16 @@ Command | Information
 
 #####SUPPRESS TRACKING
 Exclude temporary files and paths
+
 Command | Information
 ------------ | -------------
 (`$ git ls-files --other --ignored --exclude-standard`) | Lists all ignored files in this project
 
 #####SAVE FRAGMENTS
 Shelve and restore incomplete changes
+
+Command | Information
+------------ | -------------
 (`$ git stash`) | Temporarily stores all modified tracked files
 (`$ git stash list`) | Lists all stashed changesets
 (`$ git stash pop`) | Restores the most recently stashed files
@@ -194,6 +204,7 @@ Shelve and restore incomplete changes
 
 ####REVIEW HISTORY
 Browse and inspect the evolution of project files
+
 Command | Information
 ------------ | -------------
 (`$ git log`) | Lists version history for the current branch
