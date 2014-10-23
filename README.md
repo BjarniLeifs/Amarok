@@ -11,7 +11,7 @@ infrastructure.
 
 #####Description
 
-(_)Each team should implement the game TicTacToe. The main focus is on the infrastructure
+Each team should implement the game TicTacToe. The main focus is on the infrastructure
 and best coding practices described below but not on implemented features.
 The project and infrastructure should tackle the following.
 
@@ -141,8 +141,8 @@ Configure user information for all local repositories
 
 Command | Information
 ------------ | -------------
-(`$ git config --global user.name "[name]"`) | Sets the name you want atached to your commit transactions
-(`$ git config --global user.email "[email address]"`) | Sets the email you want atached to your commit transactions
+(`$ git config --global user.name "[name]"`) | Sets the name you want, to your commit transactions
+(`$ git config --global user.email "[email]"`) | Sets the email you want, to your commit transactions
 (`$ git config --global color.ui auto`) | Enables helpful colorization of command line output
 
 #####CREATE REPOSITORIES
@@ -209,7 +209,7 @@ Command | Information
 ------------ | -------------
 (`$ git log`) | Lists version history for the current branch
 (`$ git log --follow [file]`) | Lists version history for a file, including renames
-(`$ git diff [first-branch]...[second-branch]`) | Shows content differences between two branches
+(`$ git diff [1st-branch]...[2nd-branch]`) | Shows content differences between two branches
 (`$ git show [commit]`) | Outputs metadata and content changes of the specified commit
 
 
