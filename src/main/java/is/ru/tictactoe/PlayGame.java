@@ -24,7 +24,8 @@ public class PlayGame {
 	printMenu();
 
     }
-
+    
+    //printing functions
     public static void printWelcome(){
 	out.println(" _____ _     _____         _____"); 
 	out.println("|_   _(_) __|_   _|_ _  __|_   _|__   ___"); 
@@ -36,7 +37,6 @@ public class PlayGame {
 	out.println("--------------------------------------------"); 
 
     }
-
 
     public static void printMenu(){	
 	out.println("\n\t\t MAIN MENU \n"); 
@@ -51,5 +51,26 @@ public class PlayGame {
 	out.print("Your choice: \n");
     }
 
+    public static String referenceBoardToString(){
+	StringBuilder sb = new StringBuilder();
+	sb.append(" a1 | a2 | a3");
+	sb.append("\n----+----+----\n");
+	sb.append(" b1 | b2 | b3");
+	sb.append("\n----+----+----\n");
+	sb.append(" c1 | c2 | c3\n");
+	return sb.toString(); 
+    }
+
+    //-----Game logic starts here-----
+
+    //TODO: write a unit test! Check if the board has been correcty initialy
+    //ALso test, when starting new game, the board has to be empty
+    public static void initialiazeTheBoard(){
+	for(int i = 0; i < 3; i++)
+	    for(int j = 0; j < 3; j++)
+		board[i][j] = " ";
+    }
+
+    
 
 }
