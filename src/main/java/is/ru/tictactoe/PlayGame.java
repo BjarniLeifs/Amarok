@@ -40,6 +40,8 @@ public class PlayGame {
 	    initialiazeTheBoard();
 	    out.print("Your choice: "); choice = in.readInt();
 	    out.println();
+
+	    if(choice == 1 || choice == 2 ||choice == 3 || choice == 0) out.print(referenceBoardToString());
 	    
 	    if(choice == 0){
 		tick = true;
@@ -50,19 +52,19 @@ public class PlayGame {
 	    else if(choice == 1){
 		if(tmp == 1 || tick){
 		    out.print("Player 2 Username: "); username = in.readString();
-		    out.println("\n");
+		    out.println();
 		    human_B.setUsername(username);
-		    tick = false; 
+		    tick = false;
 		}
-		//play(human_A, human_B);
+		play(human_A, human_B);
 	    }
 	    
 	    else if(choice == 2){
-		//play(human_A, comp_A);
+		play(human_A, comp_A);
 	    }
 	    
 	    else if(choice == 3){
-		//play(comp_A, comp_B); 
+		play(comp_A, comp_B); 
 	    }
 	   
 
@@ -115,11 +117,15 @@ public class PlayGame {
 
     public static String referenceBoardToString(){
 	StringBuilder sb = new StringBuilder();
-	sb.append(" a1 | a2 | a3");
-	sb.append("\n----+----+----\n");
-	sb.append(" b1 | b2 | b3");
-	sb.append("\n----+----+----\n");
-	sb.append(" c1 | c2 | c3\n");
+	sb.append("--------------------------------------------\n");
+	sb.append("\t\tCoordinate map\n");
+	sb.append("--------------------------------------------\n");
+	sb.append("\t\t a1 | a2 | a3");
+	sb.append("\n\t\t----+----+----\n");
+	sb.append(" \t\t b1 | b2 | b3");
+	sb.append("\n\t\t----+----+----\n");
+	sb.append(" \t\t c1 | c2 | c3\n");
+	sb.append("--------------------------------------------\n");
 	return sb.toString(); 
     }
 
@@ -144,6 +150,184 @@ public class PlayGame {
 	    for(int j = 0; j < 3; j++)
 		board[i][j] = " ";
     }
+
+    
+    //play the game...
+    public static void play(Player player1, Player player2){
+	Point point;
+	boolean win = false;
+	int finishGame = 0;  
+	while(!win){
+	    out.println(player1.getUsername()+ "'s " + "time to play "); 
+	    point = player1.nextMove();
+	    if(board[point.getX()][point.getY()] != " "){
+		while(board[point.getX()][point.getY()] != " ") {
+		    out.print("Invalid coordinate! Try again ");
+		    out.println(); 
+		    point = player1.nextMove();
+		}
+	    }
+	    out.println();
+	    board[point.getX()][point.getY()] = "X";
+	    out.print(drawUpdatedBoard());
+	    finishGame++; //x made a move
+	    win = checkWins(); 
+	    if(win){
+		player1.setWins(player1.getWins() + 1);
+		out.println("--------------------------------------------"); 	
+		out.println("\t\t~~~Victory~~~");
+		out.println("--------------------------------------------"); 	
+		out.println("\t\t" + player1.getUsername() + " won!");
+		
+		out.println("\tWould you like to play again!?\n");
+		printMenu();
+		return;
+	    }
+	    
+	    // check if draw
+	    if(finishGame >= boardSize){
+		out.println("--------------------------------------------"); 	
+		out.println("\t\t~~~DRAW~~~");
+		out.println("--------------------------------------------");
+		out.println("\tWould you like to play again!?\n");
+		return; 
+	    }
+	    
+	    // player 2 starts playing  
+	    out.println(player2.getUsername()+ "'s " + "time to play \n");
+	    point = player2.nextMove();
+	    if(board[point.getX()][point.getY()] != " "){
+		while(board[point.getX()][point.getY()] != " ") {
+		    out.print("Invalid coordinate! Try again ");
+		    out.println();
+		    point = player2.nextMove();
+		}
+	    }
+	    board[point.getX()][point.getY()] = "O";
+	    out.print(drawUpdatedBoard());
+	    
+	    finishGame++; //O made a move
+	    win = checkWins(); 
+	    if(win){
+		player2.setWins(player2.getWins() + 1);
+		out.println("--------------------------------------------"); 	
+		out.println("\t\t~~~Victory~~~");
+		out.println("--------------------------------------------"); 	
+		out.println("\t\t" + player2.getUsername() + " won!");
+		
+		out.println("\tWould you like to play again!?\n");
+		printMenu();
+		return;
+	    }
+	    
+	}
+	
+    }
+
+    //Winning logic starts here -> TODO: test everything
+    //IF ANYONE SEES HOW TO MAKE THIS PART SHORTER, GO AHEAD AND CHANGE IT!
+
+    public static boolean checkWins(){ 
+	if(checkHorizontalforX() || checkHorizontalforO() || checkVerticalforX() || checkVerticalforO() || checkDiagnal() || chechInvDiagnal()) return true;
+	return false; 
+    }
+    
+    private static boolean checkHorizontalforX(){
+	boolean h1 = true;
+	boolean h2 = true;
+	boolean h3 = true;
+	
+	for(int i = 0; i < 3; i++){
+	    if(board[0][i] != "X") h1 = false; 
+	}
+	
+	for(int i = 0; i < 3; i++){
+	    if(board[1][i] != "X") h2 = false; 
+	}
+	
+	for(int i = 0; i < 3; i++){
+	    if(board[2][i] != "X") h3 = false; 
+	}
+	
+	if(h1 || h2 || h3) return true;
+	return false; 
+    }
+    
+    private static boolean checkHorizontalforO(){
+	boolean h1 = true;
+	boolean h2 = true;
+	boolean h3 = true;
+	
+	for(int i = 0; i < 3; i++){
+	    if(board[0][i] != "O") h1 = false; 
+	}
+	
+	for(int i = 0; i < 3; i++){
+	    if(board[1][i] != "O") h2 = false; 
+	}
+	
+	for(int i = 0; i < 3; i++){
+	    if(board[2][i] != "O") h3 = false; 
+	}
+	
+	if(h1 || h2 || h3) return true;
+	return false; 
+    }
+    
+    private static boolean checkVerticalforX(){
+	boolean v1 = true;
+	boolean v2 = true;
+	boolean v3 = true;
+	
+	for(int i = 0; i < 3; i++){
+	    if(board[i][0] != "X") v1 = false; 
+	}
+	
+	for(int i = 0; i < 3; i++){
+	    if(board[i][1] != "X") v2 = false; 
+	}
+	
+	for(int i = 0; i < 3; i++){
+	    if(board[i][2] != "X") v3 = false; 
+	}
+	
+	if(v1 || v2 || v3) return true;
+	return false; 
+    }
+    
+    private static boolean checkVerticalforO(){
+	boolean v1 = true;
+	boolean v2 = true;
+	boolean v3 = true;
+	
+	for(int i = 0; i < 3; i++){
+	    if(board[i][0] != "O") v1 = false; 
+	}
+	
+	for(int i = 0; i < 3; i++){
+	    if(board[i][1] != "O") v2 = false; 
+	}
+	
+	for(int i = 0; i < 3; i++){
+	    if(board[i][2] != "O") v3 = false; 
+	}
+	
+	if(v1 || v2 || v3) return true;
+	return false; 
+    }
+    
+    private static boolean checkDiagnal(){
+	if(board[0][0] == "X" && board[1][1] == "X" && board[2][2] == "X") return true; 
+	else if(board[0][0] == "O" && board[1][1] == "O" && board[2][2] == "O") return true; 
+	return false;
+    }
+    
+    private static boolean chechInvDiagnal(){
+	if(board[0][2] == "X" && board[1][1] == "X" && board[2][0] == "X") return true; 
+	else if(board[0][2] == "O" && board[1][1] == "O" && board[2][0] == "O") return true; 
+	return false;
+    }
+
 
     
 
