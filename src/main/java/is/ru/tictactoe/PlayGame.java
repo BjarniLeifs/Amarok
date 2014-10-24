@@ -26,6 +26,7 @@ public class PlayGame {
     }
     
     //printing functions
+    //the tilte was generated using terminal: figlet TicTacToe
     public static void printWelcome(){
 	out.println(" _____ _     _____         _____"); 
 	out.println("|_   _(_) __|_   _|_ _  __|_   _|__   ___"); 
