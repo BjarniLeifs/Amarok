@@ -15,17 +15,58 @@ public class PlayGame {
     public static void main(String[] args){
 
 	//the game has 3 modes: human vs. human, computer vs. computer and human vs. computer
-	//HumanPlayer human_A = new HumanPlayer();
-	//HumanPlayer human_B = new HumanPlayer();
-	//ComputerPlayer comp_A = new ComputerPlayer();
-	//ComputerPlayer comp_B = new ComputerPlayer();
+	HumanPlayer human_A = new HumanPlayer();
+	HumanPlayer human_B = new HumanPlayer();
+	ComputerPlayer comp_A = new ComputerPlayer();
+	ComputerPlayer comp_B = new ComputerPlayer();
 
 	printWelcome();
 	printMenu();
 
+	int choice;
+	do{
+	    initialiazeTheBoard();
+	    out.print("Your choice: "); choice = in.readInt();
+	    out.println();
+	    
+	    if(choice == 0){
+		printInfo();
+	    }
+
+	    //set the game mode
+	    else if(choice == 1){
+		//play(human_A, human_B);
+	    }
+	    
+	    else if(choice == 2){
+		//play(human_A, comp_A);
+	    }
+	    
+	    else if(choice == 3){
+		//play(comp_A, comp_B); 
+	    }
+	   
+
+	}while(choice == 1 || choice == 2 ||choice == 3 || choice == 0); //TODO: write a test for testing if correct game mode is entered after in each case
+
+	//TODO: print out the results table
+
     }
     
     //printing functions
+    public static void printInfo(){
+	out.println("---------------------------------------------------------------------"); 
+	out.println("\t\t\tProduction of AMAROK");
+	out.println("---------------------------------------------------------------------"); 
+	out.println("TicTacToe is a widely known Tic Tac Toe game for Linux and Unix OS.");
+	out.println("In this game, player can play against another player, compete against");
+	out.println("a computer and finally to spectate a game computer vs computer.");
+	out.println("If you dont know how to play Tic Tac Toe, see the follwoing link ");
+	out.println("for more information http://www.cs.jhu.edu/~jorgev/cs106/ttt.pdf");
+	out.println("---------------------------------------------------------------------"); 
+	out.println(); 
+    }
+
     //the tilte was generated using terminal: figlet TicTacToe
     public static void printWelcome(){
 	out.println(" _____ _     _____         _____"); 
@@ -46,10 +87,9 @@ public class PlayGame {
 	out.println("(2) Player vs Computer ");
 	out.println("(3) Computer vs Computer ");
 	out.println();
-	out.println("(i) Info");
+	out.println("(0) Info");
 	out.println("(4) Quit");
 	out.println("\n");
-	out.print("Your choice: ");
     }
 
     public static String referenceBoardToString(){
