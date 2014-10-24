@@ -8,6 +8,7 @@ public class Player {
     protected static Out out = new Out();
     
     private int wins;
+    private int draws;
     private String username;
 
     public Player(){
@@ -20,6 +21,14 @@ public class Player {
     
     public int getWins(){
 	return wins;
+    }
+
+    public void setDraw(int new_draw){
+        draws = new_draw;
+    }
+
+    public int getDraw(){
+        return draws;
     }
 
     public String getUsername(){

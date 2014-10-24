@@ -70,11 +70,23 @@ public class PlayGame {
 
 	}while(choice == 1 || choice == 2 ||choice == 3 || choice == 0); //TODO: write a test for testing if correct game mode is entered after in each case
 
-	//TODO: print out the results table
+	//Results table:
+	printResults(human_A, human_B, comp_A, comp_B); 
 
     }
     
     //printing functions
+    public static void printResults(Player humanA, Player humanB, Player compA, Player compB){
+	out.println("--------------------------------------------");
+	out.println("\t\tResults");
+	out.println("--------------------------------------------");
+	if(humanA.getWins() > 0 || humanA.getDraw() > 0) out.println("    " + humanA.getUsername() + " won: " + humanA.getWins() + " and tied: " + humanA.getDraw() +" times"); 
+	if(humanB.getWins() > 0 || humanB.getDraw() > 0) out.println("    " + humanB.getUsername() + " won: " + humanB.getWins() + " and tied: " + humanB.getDraw() +" times"); 
+	if(compA.getWins() > 0 || compA.getDraw() > 0) out.println("    " + compA.getUsername() + " won: " + compA.getWins() + " and tied: " + compA.getDraw() +" times"); 
+	if(compB.getWins() > 0 || compB.getDraw() > 0) out.println("    " + compB.getUsername() + " won: " + compB.getWins() + " and tied: " + compB.getDraw() +" times"); 
+	
+    }
+
     public static void printInfo(){
 	out.println("---------------------------------------------------------------------"); 
 	out.println("\t\t\tProduction of AMAROK");
@@ -190,6 +202,8 @@ public class PlayGame {
 		out.println("\t\t~~~DRAW~~~");
 		out.println("--------------------------------------------");
 		out.println("\tWould you like to play again!?\n");
+		player1.setDraw(player1.getDraw() + 1);
+		player2.setDraw(player2.getDraw() + 1);
 		return; 
 	    }
 	    
