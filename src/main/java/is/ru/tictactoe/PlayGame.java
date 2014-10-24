@@ -20,21 +20,40 @@ public class PlayGame {
 	ComputerPlayer comp_A = new ComputerPlayer();
 	ComputerPlayer comp_B = new ComputerPlayer();
 
+	comp_A.setUsername("Awesom-O"); //set computer names
+	comp_B.setUsername("R2-D2"); 
+
 	printWelcome();
+	//----------------
+	String username;
+	out.println(); 
+	out.print("Username: "); username = in.readString();
+	out.println();
+	human_A.setUsername(username);
+	//----------------
 	printMenu();
 
-	int choice;
+	int choice, tmp = 0;
+	boolean tick = false;
 	do{
+	    tmp++;
 	    initialiazeTheBoard();
 	    out.print("Your choice: "); choice = in.readInt();
 	    out.println();
 	    
 	    if(choice == 0){
+		tick = true;
 		printInfo();
 	    }
 
 	    //set the game mode
 	    else if(choice == 1){
+		if(tmp == 1 || tick){
+		    out.print("Player 2 Username: "); username = in.readString();
+		    out.println("\n");
+		    human_B.setUsername(username);
+		    tick = false; 
+		}
 		//play(human_A, human_B);
 	    }
 	    
@@ -80,8 +99,10 @@ public class PlayGame {
 
     }
 
-    public static void printMenu(){	
-	out.println("\n\t\t MAIN MENU \n"); 
+    public static void printMenu(){
+	out.println("--------------------------------------------"); 	
+	out.println("\t\t MAIN MENU ");
+	out.println("--------------------------------------------\n"); 
 	out.println("[ Game mode ]");
 	out.println("(1) Player vs Player ");
 	out.println("(2) Player vs Computer ");
