@@ -49,7 +49,7 @@ public class PlayGame {
 	out.println("(i) Info");
 	out.println("(4) Quit");
 	out.println("\n");
-	out.print("Your choice: \n");
+	out.print("Your choice: ");
     }
 
     public static String referenceBoardToString(){
