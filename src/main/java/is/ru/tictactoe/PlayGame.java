@@ -15,10 +15,10 @@ public class PlayGame {
     public static void main(String[] args){
 
 	//the game has 3 modes: human vs. human, computer vs. computer and human vs. computer
-	HumanPlayer human_A = new HumanPlayer();
-	HumanPlayer human_B = new HumanPlayer();
-	ComputerPlayer comp_A = new ComputerPlayer();
-	ComputerPlayer comp_B = new ComputerPlayer();
+	//HumanPlayer human_A = new HumanPlayer();
+	//HumanPlayer human_B = new HumanPlayer();
+	//ComputerPlayer comp_A = new ComputerPlayer();
+	//ComputerPlayer comp_B = new ComputerPlayer();
 
 	printWelcome();
 	printMenu();
