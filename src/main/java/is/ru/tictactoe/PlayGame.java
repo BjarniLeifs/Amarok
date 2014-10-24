@@ -61,10 +61,22 @@ public class PlayGame {
 	return sb.toString(); 
     }
 
+    public static String drawUpdatedBoard(){
+	StringBuilder sb = new StringBuilder(); 
+	
+	sb.append("  " + board[0][0] + " | " + board[0][1] + " | " + board[0][2] + "\t\t|\t     " + " a1 | a2 | a3\n");
+	sb.append("----+---+----" + "\t\t|\t     " + "----+----+----\n");
+	sb.append("  " + board[1][0] + " | " + board[1][1] + " | " + board[1][2] + "\t\t|\t     " + " b1 | b2 | b3\n");
+	sb.append("----+---+----" + "\t\t|\t     " + "----+----+----\n");
+	sb.append("  " + board[2][0] + " | " + board[2][1] + " | " + board[2][2] + "\t\t|\t     " + " c1 | c2 | c3\n");
+	
+	return sb.append("\n").toString(); 
+    }
+
     //-----Game logic starts here-----
 
-    //TODO: write a unit test! Check if the board has been correcty initialy
-    //ALso test, when starting new game, the board has to be empty
+    //TODO: write a unit test! Check if the board is empty when new game starts
+    //ALSO test, if this function correctly initializes the board. Hence every elment has to be equal to " "
     public static void initialiazeTheBoard(){
 	for(int i = 0; i < 3; i++)
 	    for(int j = 0; j < 3; j++)
