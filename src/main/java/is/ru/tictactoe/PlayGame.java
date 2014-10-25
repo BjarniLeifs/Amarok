@@ -33,28 +33,25 @@ public class PlayGame {
 	//----------------
 	printMenu();
 
-	int choice, tmp = 0;
-	boolean tick = false;
+	int choice, tmp = 1;
 	do{
-	    tmp++;
 	    initialiazeTheBoard();
 	    out.print("Your choice: "); choice = in.readInt();
 	    out.println();
 
-	    if(choice == 1 || choice == 2 ||choice == 3 || choice == 0) out.print(referenceBoardToString());
+	    if(choice == 1 || choice == 2 ||choice == 3) out.print(referenceBoardToString());
 	    
 	    if(choice == 0){
-		tick = true;
 		printInfo();
 	    }
 
 	    //set the game mode
 	    else if(choice == 1){
-		if(tmp == 1 || tick){
+		if(tmp == 1){
+		    tmp++;
 		    out.print("Player 2 Username: "); username = in.readString();
 		    out.println();
 		    human_B.setUsername(username);
-		    tick = false;
 		}
 		play(human_A, human_B);
 	    }
