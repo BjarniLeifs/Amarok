@@ -1,5 +1,7 @@
 package is.ru.tictactoe;
 
+import java.util.Arrays;
+
 import edu.princeton.cs.introcs.In;
 import edu.princeton.cs.introcs.Out;
 
@@ -33,20 +35,30 @@ public class PlayGame {
 	//----------------
 	printMenu();
 
-	int choice, tmp = 1;
+	String choice;
+	int tmp = 1;
 	do{
 	    initialiazeTheBoard();
-	    out.print("Your choice: "); choice = in.readInt();
+	    out.print("Your choice: "); choice = in.readString();
 	    out.println();
-
-	    if(choice == 1 || choice == 2 ||choice == 3) out.print(referenceBoardToString());
 	    
-	    if(choice == 0){
+	    if(!Arrays.asList("1", "2", "3", "4",  "0").contains(choice)){
+		while(!Arrays.asList("1", "2", "3", "4", "0").contains(choice))
+		    {
+			out.println("Illegal choice, please try again.");
+			choice = in.readString();
+		    }
+	    }
+
+
+	    if(choice.equals("1")|| choice.equals("2") ||choice.equals("3")) out.print(referenceBoardToString());
+	    
+	    if(choice.equals("0")){
 		printInfo();
 	    }
 
 	    //set the game mode
-	    else if(choice == 1){
+	    else if(choice.equals("1")){
 		if(tmp == 1){
 		    tmp++;
 		    out.print("Player 2 Username: "); username = in.readString();
@@ -56,16 +68,21 @@ public class PlayGame {
 		play(human_A, human_B);
 	    }
 	    
-	    else if(choice == 2){
+	    else if(choice.equals("2")){
 		play(human_A, comp_A);
 	    }
 	    
-	    else if(choice == 3){
+	    else if(choice.equals("3")){
 		play(comp_A, comp_B); 
 	    }
+
+	    else if(choice.equals("4")){
+		break;
+	    }
+
 	   
 
-	}while(choice == 1 || choice == 2 ||choice == 3 || choice == 0); //TODO: write a test for testing if correct game mode is entered after in each case
+		}while(choice.equals("1")|| choice.equals("2") ||choice.equals("3") || choice.equals("0")); //TODO: write a test for testing if correct game mode is entered after in each case
 
 	//Results table:
 	printResults(human_A, human_B, comp_A, comp_B); 
