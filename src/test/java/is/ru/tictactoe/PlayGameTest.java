@@ -89,63 +89,58 @@ public class PlayGameTest {
 	}
 	
     }
-    
-    //testing the winning logic
-    @Test
-    public void testVictoryOnInvertedDiagnal(){
-	
-	String[][] winO = new String[3][3];
-        winO[2][0] = "O";
-        winO[1][1] = "O";
-        winO[0][2] = "O";       
-	assertEquals(true, PlayGame.chechInvDiagnal(winO));
 
-	String[][] winX = new String[3][3];
-	winX[2][0] = "X";			     
-        winX[1][1] = "X";			     
-	winX[0][2] = "X";
-	assertEquals(true, PlayGame.chechInvDiagnal(winX));
-	
- 	String[][] wrong1  = new String[3][3];
-	wrong1[2][0] = "X";			     
-        wrong1[1][1] = "O";			     
-	wrong1[0][2] = "X";
-	assertEquals(false, PlayGame.chechInvDiagnal(wrong1));
-     
-	String[][] wrong2 = new String[3][3];
-	wrong2[2][0] = "O";			     
-        wrong2[1][1] = "X";			     
-	wrong2[0][2] = "O";
-	assertEquals(false, PlayGame.chechInvDiagnal(wrong2));
-	     
+    public void testDraw(){
+	for(int i = 0; i < 15; i++){
+	    int finishGame = rand.nextInt(15);
+	    if(finishGame < 9) assertEquals(false, PlayGame.checkDraw(finishGame, null, null));
+	    else assertEquals(true, PlayGame.checkDraw(finishGame, null, null));
+	}
     }
 
     @Test
-    public void testDiagnal(){
+    public void testCheckWins(){
+	String[][] win = new String[3][3];
+	//test horizontal
+	for(int i = 0; i < 3; i++){
+	    for(int j = 0; j < 3; j++){
+		if(i % 2 == 0) win[i][j] = "O";
+		else win[i][j] = "X";
+	    }
+	    assertEquals(true, PlayGame.checkWins(win));
+	}
+		
+	//test vertical
+	for(int i = 0; i < 3; i++){
+	    for(int j = 0; j < 3; j++){
+		if(i % 2 == 0)win[j][i] = "X";
+		else win[j][i] = "O";
+	    }
+	    assertEquals(true, PlayGame.checkWins(win));
+	}
 	
-	String[][] winO = new String[3][3];
-        winO[0][0] = "O";
-        winO[1][1] = "O";
-        winO[2][2] = "O";       
-	assertEquals(true, PlayGame.checkDiagnal(winO));
+	//test diagonal
+        win[0][0] = "O";
+        win[1][1] = "O";
+        win[2][2] = "O";       
+	assertEquals(true, PlayGame.checkWins(win));
 
-	String[][] winX = new String[3][3];
-	winX[0][0] = "X";			     
-        winX[1][1] = "X";			     
-	winX[2][2] = "X";
-	assertEquals(true, PlayGame.checkDiagnal(winX));
-	
- 	String[][] wrong1  = new String[3][3];
-	wrong1[0][0] = "X";			     
-        wrong1[1][1] = "O";			     
-	wrong1[2][2] = "X";
-	assertEquals(false, PlayGame.checkDiagnal(wrong1));
-     
-	String[][] wrong2 = new String[3][3];
-	wrong2[0][0] = "O";			     
-        wrong2[1][1] = "X";			     
-	wrong2[2][2] = "O";
-	assertEquals(false, PlayGame.checkDiagnal(wrong2));
+	win[0][0] = "X";     
+        win[1][1] = "X";     
+	win[2][2] = "X";
+	assertEquals(true, PlayGame.checkWins(win));
+
+	//test inv diagonal
+        win[2][0] = "O";
+        win[1][1] = "O";
+        win[0][2] = "O";      
+	assertEquals(true, PlayGame.checkWins(win));
+
+	win[2][0] = "X";     
+        win[1][1] = "X";     
+	win[0][2] = "X";
+	assertEquals(true, PlayGame.checkWins(win));
+
 
     }
 
