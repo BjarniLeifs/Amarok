@@ -194,7 +194,7 @@ public class PlayGame {
 	    if(checkForInvalidMove(board, point)){
 		point = makeAvalidMove(board, point, player); 
 	    }
-	    SetAsymbolOnTheBoard(board, point, symbol);
+	    board = SetAsymbolOnTheBoard(board, point, symbol);
 	    finishGame++; //player1 has made a move
 	            
 	    win = checkWins(board);
@@ -229,10 +229,11 @@ public class PlayGame {
 	return point;
     }
     
-    public static void SetAsymbolOnTheBoard(String[][] board, Point point, String symbol){
+    public static String[][] SetAsymbolOnTheBoard(String[][] board, Point point, String symbol){
 	out.println();
 	board[point.getX()][point.getY()] = symbol;
 	out.print(drawUpdatedBoard(board));
+	return board;
     }
     
     public static boolean checkDraw(int finishGame, Player player1, Player player2){
