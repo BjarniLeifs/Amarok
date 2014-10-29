@@ -191,7 +191,7 @@ public class PlayGame {
 	    }
 	    
 	    point = getApointFromThePlayer(player);
-	    if(checkForValidMove(board, point)){
+	    if(checkForInvalidMove(board, point)){
 		point = makeAvalidMove(board, point, player); 
 	    }
 	    SetAsymbolOnTheBoard(board, point, symbol);
@@ -211,7 +211,7 @@ public class PlayGame {
     }
 
     
-    public static boolean checkForValidMove(String[][] board, Point point){
+    public static boolean checkForInvalidMove(String[][] board, Point point){
 	if(board[point.getX()][point.getY()] != " "){
 	    return true; 
 	}
