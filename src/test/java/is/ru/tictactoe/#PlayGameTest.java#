@@ -86,7 +86,7 @@ public class PlayGameTest {
 	ComputerPlayer comp = new ComputerPlayer();	
 	for(int i = 0; i < 20; i++){
 	    Point ptn = PlayGame.getApointFromThePlayer(comp);
-	    if(ptn.getX() > 2 || ptn.getY() > 2) fail();
+	    if(ptn.getX() > 3 || ptn.getY() > 3) fail();
 	}
 	
     }
@@ -196,3 +196,4 @@ public class PlayGameTest {
 
 
 }
+
