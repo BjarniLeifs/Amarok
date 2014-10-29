@@ -91,11 +91,14 @@ public class PlayGameTest {
 	
     }
 
+    @Test 
     public void testDraw(){
+	ComputerPlayer comp_A = new ComputerPlayer();
+	ComputerPlayer comp_B = new ComputerPlayer();
 	for(int i = 0; i < 15; i++){
 	    int finishGame = rand.nextInt(15);
-	    if(finishGame < 9) assertEquals(false, PlayGame.checkDraw(finishGame, null, null));
-	    else assertEquals(true, PlayGame.checkDraw(finishGame, null, null));
+	    if(finishGame < 9) assertEquals(false, PlayGame.checkDraw(finishGame, comp_A, comp_B));
+	    else assertEquals(true, PlayGame.checkDraw(finishGame, comp_A, comp_B));
 	}
     }
 
@@ -215,6 +218,32 @@ public class PlayGameTest {
 	}
 	
     }
+
+    /*//this is a possible test, however a string comparison of this magnitude takes too much time, therefore i believe
+      //that we should not use this test case
+    @Test
+    public void testDrawUpdatedBoard(){
+	String[][] tmpArr = new String[3][3];
+	tmpArr = PlayGame.initialiazeTheBoard(tmpArr);
+	tmpArr[1][1] = "X";
+
+	String result = PlayGame.drawUpdatedBoard(tmpArr);
+	
+	String[][] board = new String[3][3];
+	board = PlayGame.initialiazeTheBoard(board);
+	StringBuilder sb = new StringBuilder(); 	
+	sb.append("  " + board[0][0] + " | " + board[0][1] + " | " + board[0][2] + "\t\t|\t     " + " a1 | a2 | a3\n");
+	sb.append("----+---+----" + "\t\t|\t     " + "----+----+----\n");
+	sb.append("  " + board[1][0] + " | " + board[1][1] + " | " + board[1][2] + "\t\t|\t     " + " b1 | b2 | b3\n");
+	sb.append("----+---+----" + "\t\t|\t     " + "----+----+----\n");
+	sb.append("  " + board[2][0] + " | " + board[2][1] + " | " + board[2][2] + "\t\t|\t     " + " c1 | c2 | c3\n");
+	String correct = sb.append("\n").toString();
+
+	assertEquals(correct, result);
+    }
+    */
+
+
 
 
 }
