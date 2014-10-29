@@ -273,7 +273,7 @@ public class PlayGame {
 	return false; 
     }
     
-    private static boolean checkHorizontalforX(String[][] board){
+    public static boolean checkHorizontalforX(String[][] board){
 	boolean h1 = true;
 	boolean h2 = true;
 	boolean h3 = true;
@@ -294,7 +294,7 @@ public class PlayGame {
 	return false; 
     }
     
-    private static boolean checkHorizontalforO(String[][] board){
+    public static boolean checkHorizontalforO(String[][] board){
 	boolean h1 = true;
 	boolean h2 = true;
 	boolean h3 = true;
@@ -315,7 +315,7 @@ public class PlayGame {
 	return false; 
     }
     
-    private static boolean checkVerticalforX(String[][] board){
+    public static boolean checkVerticalforX(String[][] board){
 	boolean v1 = true;
 	boolean v2 = true;
 	boolean v3 = true;
@@ -336,7 +336,7 @@ public class PlayGame {
 	return false; 
     }
     
-    private static boolean checkVerticalforO(String[][] board){
+    public static boolean checkVerticalforO(String[][] board){
 	boolean v1 = true;
 	boolean v2 = true;
 	boolean v3 = true;
@@ -357,13 +357,13 @@ public class PlayGame {
 	return false; 
     }
         
-    private static boolean checkDiagnal(String[][] board){
+    public static boolean checkDiagnal(String[][] board){
 	if(board[0][0] == "X" && board[1][1] == "X" && board[2][2] == "X") return true; 
 	else if(board[0][0] == "O" && board[1][1] == "O" && board[2][2] == "O") return true; 
 	return false;
     }
     
-    private static boolean chechInvDiagnal(String[][] board){
+    public static boolean chechInvDiagnal(String[][] board){
 	if(board[0][2] == "X" && board[1][1] == "X" && board[2][0] == "X") return true; 
 	else if(board[0][2] == "O" && board[1][1] == "O" && board[2][0] == "O") return true; 
 	return false;

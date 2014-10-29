@@ -89,6 +89,65 @@ public class PlayGameTest {
 	}
 	
     }
-       
-   
+    
+    //testing the winning logic
+    @Test
+    public void testVictoryOnInvertedDiagnal(){
+	
+	String[][] winO = new String[3][3];
+        winO[2][0] = "O";
+        winO[1][1] = "O";
+        winO[0][2] = "O";       
+	assertEquals(true, PlayGame.chechInvDiagnal(winO));
+
+	String[][] winX = new String[3][3];
+	winX[2][0] = "X";			     
+        winX[1][1] = "X";			     
+	winX[0][2] = "X";
+	assertEquals(true, PlayGame.chechInvDiagnal(winX));
+	
+ 	String[][] wrong1  = new String[3][3];
+	wrong1[2][0] = "X";			     
+        wrong1[1][1] = "O";			     
+	wrong1[0][2] = "X";
+	assertEquals(false, PlayGame.chechInvDiagnal(wrong1));
+     
+	String[][] wrong2 = new String[3][3];
+	wrong2[2][0] = "O";			     
+        wrong2[1][1] = "X";			     
+	wrong2[0][2] = "O";
+	assertEquals(false, PlayGame.chechInvDiagnal(wrong2));
+	     
+    }
+
+    @Test
+    public void testDiagnal(){
+	
+	String[][] winO = new String[3][3];
+        winO[0][0] = "O";
+        winO[1][1] = "O";
+        winO[2][2] = "O";       
+	assertEquals(true, PlayGame.checkDiagnal(winO));
+
+	String[][] winX = new String[3][3];
+	winX[0][0] = "X";			     
+        winX[1][1] = "X";			     
+	winX[2][2] = "X";
+	assertEquals(true, PlayGame.checkDiagnal(winX));
+	
+ 	String[][] wrong1  = new String[3][3];
+	wrong1[0][0] = "X";			     
+        wrong1[1][1] = "O";			     
+	wrong1[2][2] = "X";
+	assertEquals(false, PlayGame.checkDiagnal(wrong1));
+     
+	String[][] wrong2 = new String[3][3];
+	wrong2[0][0] = "O";			     
+        wrong2[1][1] = "X";			     
+	wrong2[2][2] = "O";
+	assertEquals(false, PlayGame.checkDiagnal(wrong2));
+
+    }
+
+
 }
