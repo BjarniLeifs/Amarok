@@ -78,6 +78,17 @@ public class PlayGameTest {
 	assertEquals(false, result);
 
     }
+
+    @Test //check if computer returns the random coordinates in correct range, that is between 0 =< x =< 2
+    public void testGetApointFromComputerPlayer(){ 
+
+	ComputerPlayer comp = new ComputerPlayer();	
+	for(int i = 0; i < 20; i++){
+	    Point ptn = PlayGame.getApointFromThePlayer(comp);
+	    if(ptn.getX() > 3 || ptn.getY() > 3) fail();
+	}
+	
+    }
        
    
 }
